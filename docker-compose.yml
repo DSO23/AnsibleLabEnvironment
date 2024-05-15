@@ -1,0 +1,19 @@
+services:
+  control-node:
+    build:
+      context: ./Dockerfiles
+      dockerfile: ansible-control_node.Dockerfile
+    volumes:
+      - ./control-node:/ansible
+  managed-node-1:
+    build:
+      context: ./Dockerfiles
+      dockerfile: ansible-managed_node.Dockerfile
+  managed-node-2:
+    build:
+      context: ./Dockerfiles
+      dockerfile: ansible-managed_node.Dockerfile
+  managed-node-3:
+    build:
+      context: ./Dockerfiles
+      dockerfile: ansible-managed_node.Dockerfile            
