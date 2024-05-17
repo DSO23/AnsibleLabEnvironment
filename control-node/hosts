@@ -1,5 +1,6 @@
+[database]
 managed-node-1
 
-[webservers]
+[web]
 managed-node-2
 managed-node-3

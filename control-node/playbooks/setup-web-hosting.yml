@@ -1,0 +1,35 @@
+
+# Play 1
+- name: Setup web servers
+  hosts: web
+  tasks:
+    - name: Install Nginx
+      apt: 
+        name: nginx,php8.3-fpm,php-mysql 
+        state: latest 
+        update_cache: true
+    - name: Deactive standard site
+      file: 
+        path: /etc/nginx/sites-enabled/default 
+        state: absent
+    - name: Start Nginx
+      service: 
+        name: nginx 
+        state: started 
+        enabled: true
+
+# Play 2
+- name: Setup databaser server
+  hosts: database     
+  tasks:
+    - name: "Install MySQL Server"
+      apt: 
+        name: mysql-server 
+        state: present
+        update_cache: true
+    - name: Start MySQL
+      service: 
+        name: mysql 
+        state: started 
+        enabled: true
+
